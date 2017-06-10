@@ -8,5 +8,4 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title: string = 'Account Options';
 }

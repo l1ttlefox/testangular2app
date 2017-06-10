@@ -9,20 +9,20 @@ class MyQueryEncoder extends QueryEncoder {
   }
 }
 
-const userkey: string = 'AJA3Cw9XcJZf';
-const secret: string = '1J+YxAY47khnuXf4GKSggLpPFBbQv8Hq';
-const apikey: string = '3_inujb44QPskKBok5VwhYnqy40eaVrwAJXXLsqaHRI_6DCM3KHhxNXjjcFQe0PASK';
-const format: string = 'jsonp';
-const callback: string = 'JSONP_CALLBACK';
-const url: string = 'https://accounts.gigya.com/accounts.getPolicies';
-const url2: string = 'https://accounts.gigya.com/accounts.setPolicies';
+const userkey = 'AJA3Cw9XcJZf';
+const secret = '1J+YxAY47khnuXf4GKSggLpPFBbQv8Hq';
+const apikey = '3_inujb44QPskKBok5VwhYnqy40eaVrwAJXXLsqaHRI_6DCM3KHhxNXjjcFQe0PASK';
+const format = 'jsonp';
+const callback = 'JSONP_CALLBACK';
+const url = 'https://accounts.gigya.com/accounts.getPolicies';
+const url2 = 'https://accounts.gigya.com/accounts.setPolicies';
 const headers: Headers = new Headers();
 headers.append('Accept', 'application/json');
 
 @Injectable()
-export class JsonpService{
+export class JsonpService {
 
-  constructor(private jsonp: Jsonp){ }
+  constructor(private jsonp: Jsonp) { }
 
   getData(): Promise<Options> {
     const params: URLSearchParams = new URLSearchParams('', new MyQueryEncoder());
