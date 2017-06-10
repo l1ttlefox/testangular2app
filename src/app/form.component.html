@@ -1,0 +1,113 @@
+<div class="col-md-8">
+  <a *ngIf="disabled" routerLink="/">Back</a>
+  <a *ngIf="!disabled" routerLink="/readonly">Readonly</a>
+</div>
+<div class="col-md-8">
+  <p class="bg-danger padding-15 radius-5" *ngIf="options.errorCode !== 0">{{ options.errorMessage }}</p>
+</div>
+<form class="col-lg-8 col-md-8">
+  <div class="checkbox">
+    <label>
+      <input
+        [(ngModel)]="options.verifyEmail"
+        name="verifyEmail"
+        type="checkbox"
+        [disabled]="disabled"
+      > Verify Email
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input
+        [(ngModel)]="options.verifyProviderEmail"
+        name="verifyProviderEmail"
+        type="checkbox"
+        [disabled]="disabled"
+      >
+      Verify ProviderEmail
+    </label>
+  </div>
+  <div class="checkbox" *ngIf="options.verifyEmail">
+    <label>
+      <input
+        [(ngModel)]="options.allowUnverifiedLogin"
+        name="allowUnverifiedLogin"
+        type="checkbox"
+        [disabled]="disabled"
+      >
+      Allow Unverified Login
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input
+        [(ngModel)]="options.preventLoginIDHarvesting"
+        name="preventLoginIDHarvesting"
+        type="checkbox"
+        [disabled]="disabled"
+      >
+      Prevent Login ID Harvesting
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input
+        [(ngModel)]="options.sendWelcomeEmail"
+        name="sendWelcomeEmail"
+        type="checkbox"
+        [disabled]="disabled"
+      > Send Welcome Email
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input
+        [(ngModel)]="options.sendAccountDeletedEmail"
+        name="sendAccountDeletedEmail"
+        type="checkbox"
+        [disabled]="disabled"
+        (change)="onChange($event)"
+      >
+      Send Account Deleted Email
+    </label>
+  </div>
+  <div class="form-group">
+    <select
+      class="form-control"
+      [(ngModel)]="options.defaultLanguage"
+      name="defaultLanguage"
+      [disabled]="disabled"
+    >
+      <option *ngFor="let language of languages" [ngValue]="language.value">{{language.label}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select
+      class="form-control"
+      [(ngModel)]="options.loginIdentifiers"
+      name="loginIdentifiers"
+      [disabled]="disabled"
+    >
+      <option *ngFor="let identifier of loginIdentifiers" [value]="identifier.value">{{identifier.label}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select
+      class="form-control"
+      [(ngModel)]="options.loginIdentifierConflict"
+      name="loginIdentifierConflict"
+      [disabled]="disabled"
+    >
+      <option *ngFor="let conflict of loginIdentifierConflicts" [value]="conflict.value">{{conflict.label}}</option>
+    </select>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success"
+    (click)="onSubmit(options)"
+    [disabled]="disabled"
+  >
+    Save
+  </button>
+</form>
+
