@@ -7,4 +7,6 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent {}
+export class AppComponent {
+  title: string = 'Account Options';
+}
